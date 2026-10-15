@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace PB.MANAGER
 {
-    public class PObjectPoolManager : PMonoSingleton<PObjectPoolManager>
+    public class PObjectPoolManager : PSingleton<PObjectPoolManager>
     {
         [Serializable]
         public class Pool
@@ -21,7 +21,7 @@ namespace PB.MANAGER
         [SerializeField] List<Pool> pools;
         Dictionary<string, Queue<GameObject>> poolsDict;
 
-        protected override void Awake()
+        public override void Awake()
         {
             base.Awake();
 

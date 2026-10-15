@@ -2,12 +2,11 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using PB.SYSTEM;
-using PB.UTILS;
 using PB.USER;
 
 namespace PB.MANAGER
 {
-    public class PSoundManager : PMonoSingleton<PSoundManager>
+    public class PSoundManager : PSingleton<PSoundManager>
     {
         [Serializable]
         public class SFX
@@ -41,7 +40,7 @@ namespace PB.MANAGER
         private bool _isBgmMuted;
         private bool _isSfxMuted;
 
-        protected override void Awake()
+        public override void Awake()
         {
             base.Awake();
             InitBGM();
