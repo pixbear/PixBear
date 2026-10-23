@@ -3,13 +3,15 @@ using UnityEngine.EventSystems;
 
 // Attach this to a UI object (with a RectTransform) to make it draggable.
 [RequireComponent(typeof(CanvasGroup))]
-public class UIDragAndDropTest : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
+public class UIDragAndDropTest : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IDirtyFlag
 {
     [SerializeField] private Canvas canvas;
 
     private RectTransform rectTransform;
     private CanvasGroup canvasGroup;
     private Transform originalParent;
+
+    public bool IsDirty { get; set; }
 
     private void Awake()
     {
